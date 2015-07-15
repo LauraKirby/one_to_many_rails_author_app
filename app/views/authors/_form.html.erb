@@ -1,0 +1,22 @@
+<% if @author.errors.any? %>
+	<% @author.errors.full_messages.each do |error| %>
+		<p>
+			<%= error %>
+		</p>
+		<% end %>
+<% end %>
+
+<%= form_for @author do |f| %>
+	<div>
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, autofocus:true %>
+	</div>
+	<div>
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
+	<div>
+		<%= f.label :age %>
+		<%= f.text_field :age %>
+	</div>
+<% end %>
