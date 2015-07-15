@@ -1,3 +1,13 @@
-<h1>Author: <%= @author.first_name %> </h1>
+<p>
+	<h1>Author: <%= @author.first_name %> </h1>
+</p>
 
-<p>The author's books will go here.</p>
+<p>Author's books:</p>
+
+	<p><% @author.books.each do |book| %></p>
+		<p>
+			<%= book.name %>
+		</p>
+	<% end %>
+
+
