@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+	before_action :find_author, only: [:show, :edit, :update, :destroy]
 
   def index
   	@authors = Author.all
@@ -24,6 +25,7 @@ class AuthorsController < ApplicationController
   end
 
   def update
+
   end 
 
   def destroy 
@@ -34,5 +36,9 @@ private
 	def author_params
 		params.require(:author).permit(:first_name, :last_name, :age)
 	end
+
+	def find_author
+		@author = Author.find params[:id]
+	end 
 
 end 
