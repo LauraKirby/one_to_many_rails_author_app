@@ -7,4 +7,7 @@
 	<p>
 		<%= link_to "New Author", new_author_path %>
 	</p>
+	<p>
+		<%= link_to "Edit #{author.first_name}", edit_author_path(author) %>
+	</p>
 	<% end %>

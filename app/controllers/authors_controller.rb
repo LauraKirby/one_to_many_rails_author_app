@@ -25,7 +25,12 @@ class AuthorsController < ApplicationController
   end
 
   def update
-
+  	@author.update author_params
+  	if @author.save 
+  		redirect_to authors_path, notice: "Author has been updated"
+  	else 
+  		render :edit
+  	end 
   end 
 
   def destroy 
