@@ -9,6 +9,12 @@ class AuthorsController < ApplicationController
   end
 
   def create 
+  	@author = Author.new author_params
+  	if @author.save
+  		redirect_to authors_path, flash: {success: "Author Added"}
+  	else 
+  		render :new 
+  	end 
   end 
 
   def show
@@ -22,4 +28,11 @@ class AuthorsController < ApplicationController
 
   def destroy 
   end 
-end
+
+private
+
+	def author_params
+		params.require(:author).permit(:first_name, :last_name, :age)
+	end
+
+end 
