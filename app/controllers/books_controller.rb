@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book = @author.books.new book_params
     if @book.save
       flash[:success] = "A book was created"
-      redirect_to author_books_path(@animal)
+      redirect_to author_books_path(@author)
     else 
       render :new
     end

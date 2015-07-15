@@ -1,2 +1,16 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<p>
+<h1>An Author's Book Index</h1>
+</p>
+
+
+<% @author.books.each do |book|  %>
+	<p>
+		<%= book.title %>
+	</p>
+	<p>
+		<%= link_to "Edit", edit_book_path(book) %>
+	</p>
+	<p>
+		<%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %>
+	</p>
+	<% end %>
