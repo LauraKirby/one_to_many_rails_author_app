@@ -34,6 +34,8 @@ class AuthorsController < ApplicationController
   end 
 
   def destroy 
+  	@author.destroy
+  	redirect_to authors_path, alert: "Author has been removed"
   end 
 
 private
